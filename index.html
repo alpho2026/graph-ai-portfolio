@@ -1,1240 +1,1367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2026/10/11/11/20261011114332-L3ZJF7EH.js" defer></script>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alphonce Oyugi | Generative AI for Work & Research Portfolio</title>
-  <style>
-    :root {
-      --bg: #fafbfc;
-      --surface: #ffffff;
-      --surface-subtle: #f8fafc;
-      --border: #e9ecef;
-      --border-card: #e2e8f0;
-      --text-main: #212529;
-      --text-heading: #1e293b;
-      --text-muted: #64748b;
-      --text-light: #94a3b8;
-      --primary: #0d6efd;
-      --primary-hover: #0b5ed7;
-      --primary-soft: #eff6ff;
-      --brand-accent: #e83e8c;
-      --avatar-bg: #5dade2;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-      --shadow-card: 0 4px 12px rgba(15, 23, 42, 0.05);
-      --shadow-avatar: 0 20px 40px -10px rgba(93, 173, 226, 0.35), 0 12px 24px -10px rgba(0, 0, 0, 0.08);
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 50px;
-      --transition: all 0.2s ease-in-out;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    header.navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 72px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.12rem;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-    }
-
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--brand-accent);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.88rem;
-      box-shadow: 0 2px 8px rgba(232, 62, 140, 0.35);
-    }
-
-    .brand-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 1.5px solid var(--primary);
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: var(--transition);
-      padding: 0.4rem 0.2rem;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--primary);
-    }
-
-    .nav-extra {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-left: 0.5rem;
-    }
-
-    .hero {
-      padding: 5.5rem 0 4.5rem;
-      background: #ffffff;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.85fr;
-      align-items: center;
-      gap: 3.5rem;
-      position: relative;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-greeting {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
-    .hero-name {
-      font-size: 3.75rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-headline {
-      font-size: 2.15rem;
-      font-weight: 700;
-      color: #334155;
-      line-height: 1.22;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-bio {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 2rem;
-      max-width: 530px;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.4rem;
-      font-size: 0.92rem;
-      font-weight: 600;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .btn-pill-primary {
-      background: var(--primary);
-      color: #ffffff;
-      border: 1.5px solid var(--primary);
-    }
-
-    .btn-pill-primary:hover {
-      background: var(--primary-hover);
-      border-color: var(--primary-hover);
-      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
-    }
-
-    .btn-pill-outline {
-      background: #ffffff;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-    }
-
-    .btn-pill-outline:hover {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
-    }
-
-    .social-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid #cbd5e1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: var(--transition);
-      background: #ffffff;
-    }
-
-    .social-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .plus-pattern {
-      display: grid;
-      grid-template-columns: repeat(2, 14px);
-      gap: 9px;
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      font-family: monospace;
-      line-height: 1;
-      user-select: none;
-    }
-
-    .hero-avatar-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .avatar-circle-container {
-      position: relative;
-      width: 270px;
-      height: 270px;
-      border-radius: 50%;
-      padding: 6px;
-      background: linear-gradient(135deg, rgba(13, 110, 253, 0.25), rgba(93, 173, 226, 0.5));
-      box-shadow: var(--shadow-avatar);
-      transition: var(--transition);
-    }
-
-    .avatar-circle-container:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 24px 45px -8px rgba(93, 173, 226, 0.45);
-    }
-
-    .avatar-circle-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-      background: #e2e8f0;
-      border: 4px solid #ffffff;
-    }
-
-    .cohort-strip {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 0;
-    }
-
-    .cohort-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .cohort-pill {
-      font-size: 0.82rem;
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-pill);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .cohort-pill strong {
-      color: var(--text-heading);
-    }
-
-    section {
-      padding: 4.75rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-header {
-      margin-bottom: 2.75rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--primary);
-      margin-bottom: 0.4rem;
-    }
-
-    .section-title {
-      font-size: 1.95rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-heading);
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-      max-width: 620px;
-      font-size: 0.98rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 2.75rem;
-      align-items: start;
-    }
-
-    .about-content p {
-      font-size: 1.02rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      line-height: 1.7;
-    }
-
-    .about-content strong {
-      color: var(--text-heading);
-    }
-
-    .interests-group {
-      margin-top: 1.75rem;
-    }
-
-    .interests-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .interest-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      background: #ffffff;
-      color: var(--text-muted);
-      font-size: 0.84rem;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-sm);
-    }
-
-    .sidebar-card {
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .sidebar-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      color: var(--text-heading);
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .edu-item {
-      margin-bottom: 1.25rem;
-    }
-
-    .edu-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .edu-degree {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-
-    .edu-institution {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .edu-year {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      margin-top: 0.1rem;
-    }
-
-    .course-summary-box {
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 2.25rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .course-summary-box p {
-      color: var(--text-muted);
-      font-size: 1.02rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.68;
-    }
-
-    .course-features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.75rem;
-    }
-
-    .feature-card {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 1.25rem;
-    }
-
-    .feature-card h4 {
-      font-size: 0.95rem;
-      color: var(--text-heading);
-      margin-bottom: 0.35rem;
-      font-weight: 600;
-    }
-
-    .feature-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    .partners-bar {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .module-card {
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 1.65rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .module-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: var(--shadow-card);
-      transform: translateY(-2px);
-    }
-
-    .module-top {
-      margin-bottom: 1.25rem;
-    }
-
-    .module-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.85rem;
-    }
-
-    .module-num {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--primary);
-      background: var(--primary-soft);
-      padding: 0.22rem 0.6rem;
-      border-radius: var(--radius-sm);
-    }
-
-    .module-status {
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 0.22rem 0.6rem;
-      border-radius: var(--radius-pill);
-    }
-
-    .status-completed {
-      background: #dcfce7;
-      color: #15803d;
-      border: 1px solid #bbf7d0;
-    }
-
-    .status-upcoming {
-      background: #f1f5f9;
-      color: #64748b;
-      border: 1px solid var(--border);
-    }
-
-    .module-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.35;
-      margin-bottom: 0.6rem;
-    }
-
-    .module-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 1rem;
-    }
-
-    .module-topics {
-      list-style: none;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .module-topics li {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.4rem;
-      line-height: 1.4;
-    }
-
-    .module-topics li::before {
-      content: "•";
-      color: var(--primary);
-      position: absolute;
-      left: 0.2rem;
-      font-weight: bold;
-    }
-
-    .submission-box {
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px dashed var(--border);
-    }
-
-    .btn-submission {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.6rem 1rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: var(--transition);
-      gap: 0.4rem;
-    }
-
-    .btn-active {
-      background: var(--text-heading);
-      color: #ffffff;
-      border: 1px solid var(--text-heading);
-    }
-
-    .btn-active:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-    }
-
-    .btn-placeholder {
-      background: var(--surface-subtle);
-      color: var(--text-light);
-      border: 1px solid var(--border);
-      cursor: not-allowed;
-    }
-
-    /* Consultation Form Section */
-    .form-wrapper {
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .form-wrapper iframe {
-      width: 100%;
-      max-width: 640px;
-      height: 850px;
-      border: 0;
-      border-radius: var(--radius-sm);
-    }
-
-    .connect-card {
-      background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .connect-text h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: var(--text-heading);
-    }
-
-    .connect-text p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 520px;
-    }
-
-    .btn-linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #0a66c2;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.75rem 1.4rem;
-      border-radius: var(--radius-pill);
-      transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(10, 102, 194, 0.25);
-    }
-
-    .btn-linkedin:hover {
-      background: #004182;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      padding: 3rem 0;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      background: #ffffff;
-      text-align: center;
-    }
-
-    .footer-citation {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    .footer-citation a {
-      color: var(--text-muted);
-      text-decoration: underline;
-      transition: var(--transition);
-    }
-
-    .footer-citation a:hover {
-      color: var(--primary);
-    }
-
-    @media (max-width: 860px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: left;
-      }
-      .hero-name {
-        font-size: 3rem;
-      }
-      .hero-headline {
-        font-size: 1.7rem;
-      }
-      .avatar-circle-container {
-        width: 220px;
-        height: 220px;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav-inner {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem 0;
-        gap: 0.8rem;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-      .form-wrapper {
-        padding: 0.75rem;
-      }
-      .form-wrapper iframe {
-        height: 920px;
-      }
-    }
-  </style>
+    <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/10/11/11/20261011114332-L3ZJF7EH.js" defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphonce Oyugi | Generative AI for Work &amp; Research Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --surface: #ffffff;
+            --surface-subtle: #f8fafc;
+            --border: #e9ecef;
+            --border-card: #e2e8f0;
+            --text-main: #212529;
+            --text-heading: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --primary: #0d6efd;
+            --primary-hover: #0b5ed7;
+            --primary-soft: #eff6ff;
+            --brand-accent: #e83e8c;
+            --avatar-bg: #5dade2;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 4px 12px rgba(15, 23, 42, 0.05);
+            --shadow-avatar: 0 20px 40px -10px rgba(93, 173, 226, 0.35), 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-pill: 50px;
+            --transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header.navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 72px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.12rem;
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+        }
+
+        .brand-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1.5px solid var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.1rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.4rem 0.2rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 5.5rem 0 4.5rem;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.85fr;
+            align-items: center;
+            gap: 3.5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-greeting {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .hero-name {
+            font-size: 3.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-headline {
+            font-size: 2.15rem;
+            font-weight: 700;
+            color: #334155;
+            line-height: 1.22;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-bio {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 2rem;
+            max-width: 530px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.4rem;
+            font-size: 0.92rem;
+            font-weight: 600;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-pill-outline {
+            background: #ffffff;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-pill-outline:hover {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            background: #ffffff;
+        }
+
+        .social-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .plus-pattern {
+            display: grid;
+            grid-template-columns: repeat(2, 14px);
+            gap: 9px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            font-family: monospace;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .hero-avatar-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .avatar-circle-container {
+            position: relative;
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            padding: 6px;
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.25), rgba(93, 173, 226, 0.5));
+            box-shadow: var(--shadow-avatar);
+            transition: var(--transition);
+        }
+
+        .avatar-circle-container:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 24px 45px -8px rgba(93, 173, 226, 0.45);
+        }
+
+        .avatar-circle-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            background: #e2e8f0;
+            border: 4px solid #ffffff;
+        }
+
+        .cohort-strip {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+
+        .cohort-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .cohort-pill {
+            font-size: 0.82rem;
+            background: var(--surface-subtle);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-pill);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cohort-pill strong {
+            color: var(--text-heading);
+        }
+
+        section {
+            padding: 4.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 2.75rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .section-title {
+            font-size: 1.95rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-heading);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+            max-width: 620px;
+            font-size: 0.98rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 2.75rem;
+            align-items: start;
+        }
+
+        .about-content p {
+            font-size: 1.02rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .about-content strong {
+            color: var(--text-heading);
+        }
+
+        .interests-group {
+            margin-top: 1.75rem;
+        }
+
+        .interests-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #ffffff;
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            padding: 0.35rem 0.8rem;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-heading);
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edu-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-degree {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+
+        .edu-institution {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        .edu-year {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 0.1rem;
+        }
+
+        .course-summary-box {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-summary-box p {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.68;
+        }
+
+        .course-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.75rem;
+        }
+
+        .feature-card {
+            background: var(--surface-subtle);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+        }
+
+        .feature-card h4 {
+            font-size: 0.95rem;
+            color: var(--text-heading);
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .partners-bar {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 1.65rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .module-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+        }
+
+        .module-top {
+            margin-bottom: 1.25rem;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .module-num {
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            background: var(--primary-soft);
+            padding: 0.22rem 0.6rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .module-status {
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 0.22rem 0.6rem;
+            border-radius: var(--radius-pill);
+        }
+
+        .status-completed {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .status-upcoming {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid var(--border);
+        }
+
+        .module-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+        }
+
+        .module-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 1rem;
+        }
+
+        .module-topics {
+            list-style: none;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .module-topics li {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
+
+        .module-topics li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0.2rem;
+            font-weight: bold;
+        }
+
+        .submission-box {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .btn-submission {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: var(--transition);
+            gap: 0.4rem;
+        }
+
+        .btn-active {
+            background: var(--text-heading);
+            color: #ffffff;
+            border: 1px solid var(--text-heading);
+        }
+
+        .btn-active:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-placeholder {
+            background: var(--surface-subtle);
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            cursor: not-allowed;
+        }
+
+        .connect-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .connect-text h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: var(--text-heading);
+        }
+
+        .connect-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 520px;
+        }
+
+        .btn-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #0a66c2;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: var(--radius-pill);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(10, 102, 194, 0.25);
+        }
+
+        .btn-linkedin:hover {
+            background: #004182;
+            transform: translateY(-2px);
+        }
+
+        /* Generative AI consultation form */
+        .consultation-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .consultation-card iframe {
+            display: block;
+            width: 100%;
+            min-height: 1000px;
+            border: none;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        .form-fallback {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-fallback a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 3rem 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .footer-citation {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-citation a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+
+        .footer-citation a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 860px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: left;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+
+            .hero-headline {
+                font-size: 1.7rem;
+            }
+
+            .avatar-circle-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0.8rem;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+
+            nav a {
+                font-size: 0.84rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .hero {
+                padding: 3.5rem 0;
+            }
+
+            .hero-name {
+                font-size: 2.7rem;
+            }
+
+            .hero-headline {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.65rem;
+            }
+
+            .course-summary-box,
+            .connect-card {
+                padding: 1.25rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-card {
+                padding: 0.5rem;
+            }
+
+            .consultation-card iframe {
+                min-height: 1150px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#hero" class="brand">
-        <img 
-          src="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Passport%20Photo_ALPHONCE%20OYUGI___.png?raw=true" 
-          alt="Alphonce Oyugi" 
-          class="brand-avatar"
-          onerror="this.style.display='none';" 
-        />
-        <span>Alphonce Oyugi</span>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#about-me">About</a></li>
-          <li><a href="#about-course">Course</a></li>
-          <li><a href="#submissions">Submissions</a></li>
-          <li><a href="#consultation">Consultation</a></li>
-          <li><a href="#connect">Connect</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="hero" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <p class="hero-greeting">Hi, my name is</p>
-        <h1 class="hero-name">Alphonce.</h1>
-        <h2 class="hero-headline">I research and build for AI in global health.</h2>
-        <p class="hero-bio">
-          Global health researcher, healthcare innovator, and registered nurse focusing on health systems research, AI-enabled diagnostics, and maternal health in low-resource settings.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="#consultation" class="btn-pill btn-pill-primary">
-            Request Consultation
-          </a>
-
-          <a href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-outline">
-            Resume &amp; Profile
-          </a>
-
-          <a href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn Profile" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-
-          <a href="#about-course" class="social-btn" title="Course Curriculum" aria-label="Course">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-            </svg>
-          </a>
-
-          <a href="#submissions" class="social-btn" title="Submissions" aria-label="Submissions">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="plus-pattern" aria-hidden="true">
-          <span>+</span><span>+</span>
-          <span>+</span><span>+</span>
-          <span>+</span><span>+</span>
-          <span>+</span><span>+</span>
-        </div>
-      </div>
-
-      <div class="hero-avatar-area">
-        <div class="avatar-circle-container">
-          <img 
-            src="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Passport%20Photo_ALPHONCE%20OYUGI___.png?raw=true" 
-            alt="Alphonce Oyugi" 
-            class="avatar-circle-img" 
-            onerror="this.onerror=null; this.src='https://placehold.co/270x270/5dade2/ffffff?text=Alphonce+Oyugi';"
-          />
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <aside class="cohort-strip">
-    <div class="container cohort-pills">
-      <span class="cohort-pill">
-        <strong>Course:</strong> Generative AI for Work &amp; Research
-      </span>
-      <span class="cohort-pill">
-        <strong>Provider:</strong> The GRAPH Courses · University of Geneva
-      </span>
-      <span class="cohort-pill">
-        <strong>Affiliation:</strong> Duke University (MSGH Candidate)
-      </span>
-      <span class="cohort-pill">
-        <strong>Format:</strong> 8-Week Live Cohort
-      </span>
-    </div>
-  </aside>
-
-  <section id="about-me">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Profile</div>
-        <h2 class="section-title">About Me</h2>
-        <p class="section-desc">Global health researcher, healthcare innovator, and clinician.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-content">
-          <p>
-            I am a global health early career researcher, innovator and registered nurse with passion and experience in health systems research, <strong>AI-enabled diagnostics</strong>, and maternal health in low-resource settings.
-          </p>
-          <p>
-            I have served as a <strong>Principal Investigator and Co-Investigator</strong> on externally funded research projects involving AI-assisted Point-of-Care Ultrasound (POCUS), Point of care ultrasound Training, infectious disease modeling, and policy-relevant evidence generation to inform national health decision-making.
-          </p>
-          <p>
-            Trained in nursing and public health, bioethics, responsible conduct of research, and quantitative data analysis (with proficiency in R, SPSS, and REDCap), I bring strong project management, interdisciplinary collaboration, and community-engaged research skills grounded in lived experience within underserved populations, with a commitment to translating rigorous research into equitable health policy and practice.
-          </p>
-
-          <div class="interests-group">
-            <div class="interests-label">Research &amp; Practice Focus</div>
-            <div class="interest-tags">
-              <span class="tag">Maternal and Child Health</span>
-              <span class="tag">Point of Care Diagnostics</span>
-              <span class="tag">AI-Enabled POCUS</span>
-              <span class="tag">Infectious Disease Modelling</span>
-              <span class="tag">Health Technology Assessment</span>
-              <span class="tag">Responsible AI in Healthcare</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="sidebar-card">
-          <h3>Academic Background</h3>
-          <div class="edu-item">
-            <div class="edu-degree">Masters in Global Health</div>
-            <div class="edu-institution">Duke University, USA, North Carolina</div>
-            <div class="edu-year">2026 – 2028</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Fellowship in Infectious Disease Modelling</div>
-            <div class="edu-institution">CEMA, University of Nairobi, Kenya</div>
-            <div class="edu-year">2025 – 2026</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Point of Care Ultrasound Fellowship</div>
-            <div class="edu-institution">Global Ultrasound Institute, USA</div>
-            <div class="edu-year">2025</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Medical Device Innovation Summer Program</div>
-            <div class="edu-institution">Invention Education, Kenyatta University</div>
-            <div class="edu-year">2025</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree">Bachelor in Nursing and Public Health</div>
-            <div class="edu-institution">Kenyatta University, Kenya</div>
-            <div class="edu-year">2020 – 2024</div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section id="about-course">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Curriculum</div>
-        <h2 class="section-title">About the Course</h2>
-        <p class="section-desc">Practical, academically grounded generative AI for scientists and professionals.</p>
-      </div>
-
-      <div class="course-summary-box">
-        <p>
-          Based at the <strong>University of Geneva, Switzerland</strong>, The GRAPH Courses program combines academic rigor with practical, industry-relevant skills. The <em>Generative AI for Work &amp; Research</em> bootcamp is an 8-week live cohort training program focused on <strong>no-code AI tools for responsible task automation</strong>.
-        </p>
-        <p>
-          The curriculum emphasizes navigating next token prediction, mitigating hallucinations in statistical outputs, automated literature reviews, context engineering, RAG, custom GPT deployment, workflow automation, and responsible presentation of scientific findings.
-        </p>
-
-        <div class="course-features-grid">
-          <div class="feature-card">
-            <h4>Live Workshops</h4>
-            <p>Interactive weekly hands-on sessions applying prework concepts to real research scenarios.</p>
-          </div>
-          <div class="feature-card">
-            <h4>Responsible Automation</h4>
-            <p>Emphasis on human-in-the-loop validation, data privacy, and spotting statistical errors.</p>
-          </div>
-          <div class="feature-card">
-            <h4>Capstone Showcase</h4>
-            <p>Collaborative project presentation demonstrating verified, deployed AI workflows.</p>
-          </div>
-          <div class="feature-card">
-            <h4>Academic Foundation</h4>
-            <p>Supported by the University of Geneva, Swiss School of Public Health, and international partners.</p>
-          </div>
-        </div>
-
-        <div class="partners-bar">
-          <strong>Academic &amp; Institutional Network:</strong> University of Geneva · Campus Biotech · Swiss School of Public Health (SSPH+) · World Health Organization · EPFL · ETH Zürich · University of Oxford · Fiocruz · APHRC · Renku.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="submissions">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Course Progress</div>
-        <h2 class="section-title">My Weekly Submissions</h2>
-        <p class="section-desc">Coursework modules and practical deliverables across the 8-week cohort.</p>
-      </div>
-
-      <div class="modules-grid">
-
-        <!-- Module 1 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 1</span>
-              <span class="module-status status-completed">Completed</span>
-            </div>
-            <h3 class="module-title">Documents, Presentations &amp; Websites</h3>
-            <p class="module-desc">
-              LLM foundations, next token prediction, prompt engineering for grant and paper texts, and building project websites.
-            </p>
-            <ul class="module-topics">
-              <li>How LLMs are trained &amp; overview of LLM providers</li>
-              <li>Principles for prompting LLMs &amp; avoiding "AI slop"</li>
-              <li>Generating DOCX, PPTX, and HTML portfolio outputs</li>
-              <li>AI detectors and staying in control of writing</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <a href="#hero" class="btn-submission btn-active">Active Submission: Portfolio Website</a>
-          </div>
-        </article>
-
-        <!-- Module 2 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 2</span>
-              <span class="module-status status-completed">Completed</span>
-            </div>
-            <h3 class="module-title">AI-Automated Data Analysis</h3>
-            <p class="module-desc">
-              Responsible quantitative data analysis using built-in data agents, REPL execution loops, and verification safeguards. Analyzed Gapminder data to explore relationships between two global indicators using AI tools.
-            </p>
-            <ul class="module-topics">
-              <li>Privacy considerations with generative AI models</li>
-              <li>Autocomplete, chat, and REPL data agents</li>
-              <li>Spreadsheet manipulation and dashboarding</li>
-              <li>The verification problem: spotting statistical hallucinations</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <a 
-              href="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Gapminder_Alphonce_.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="btn-submission btn-active"
-            >
-              <span>Gapminder Analysis Report (PDF)</span>
-              <span>&rarr;</span>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#hero" class="brand">
+                <img
+                    src="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Passport%20Photo_ALPHONCE%20OYUGI___.png?raw=true"
+                    alt="Alphonce Oyugi"
+                    class="brand-avatar"
+                    onerror="this.style.display='none';"
+                >
+                <span>Alphonce Oyugi</span>
             </a>
-          </div>
-        </article>
 
-        <!-- Module 3 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 3</span>
-              <span class="module-status status-completed">Completed</span>
-            </div>
-            <h3 class="module-title">AI-Assisted Literature Review</h3>
-            <p class="module-desc">
-              Extracted key details from 14 experiments on social media cessation/reduction and mood using Gemini Notebook, verified extractions against original papers, generated results visualization, and compared findings with a published meta-analysis.
-            </p>
-            <ul class="module-topics">
-              <li>Batch document processing &amp; structured extraction</li>
-              <li>Gemini Notebook RAG &amp; source verification</li>
-              <li>Synthesizing evidence across experimental studies</li>
-              <li>Comparing AI synthesis with published meta-analyses</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <a 
-              href="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Graph%20Courses_Alphonce_Workshop_4.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="btn-submission btn-active"
-            >
-              <span>Workshop 3 Report (PDF)</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Module 4 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 4</span>
-              <span class="module-status status-upcoming">Upcoming</span>
-            </div>
-            <h3 class="module-title">Custom GPTs &amp; Chatbots</h3>
-            <p class="module-desc">
-              Knowledge base creation, context engineering, Retrieval-Augmented Generation (RAG), and safe deployment.
-            </p>
-            <ul class="module-topics">
-              <li>Context engineering and RAG foundations</li>
-              <li>Building embedded research assistance chatbots</li>
-              <li>Custom GPTs and NotebookLM project assistants</li>
-              <li>Sandboxing, prompt injection risks, and rate limiting</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <span class="btn-submission btn-placeholder">Submission Link Pending</span>
-          </div>
-        </article>
-
-        <!-- Module 5 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 5</span>
-              <span class="module-status status-upcoming">Upcoming</span>
-            </div>
-            <h3 class="module-title">AI for Task Automation</h3>
-            <p class="module-desc">
-              Designing triggered workflows that combine traditional automation with LLM reasoning for unstructured data.
-            </p>
-            <ul class="module-topics">
-              <li>Traditional vs. LLM-powered workflow automation</li>
-              <li>Action-based and frequency triggers</li>
-              <li>Automated literature monitoring and research digests</li>
-              <li>Human-in-the-loop design and browser agent execution</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <span class="btn-submission btn-placeholder">Submission Link Pending</span>
-          </div>
-        </article>
-
-        <!-- Module 6 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 6</span>
-              <span class="module-status status-upcoming">Upcoming</span>
-            </div>
-            <h3 class="module-title">GenAI for Communication &amp; Outreach</h3>
-            <p class="module-desc">
-              Visual abstracts, scientific infographics, SVG vs pixel generation, and ethical communication standards.
-            </p>
-            <ul class="module-topics">
-              <li>Image model architectures and prompt control</li>
-              <li>Choosing formats: HTML/CSS vs SVG code vs pixels</li>
-              <li>AI-assisted visual abstracts and scientific diagrams</li>
-              <li>Ethical questions, originality, and AI-assisted video</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <span class="btn-submission btn-placeholder">Submission Link Pending</span>
-          </div>
-        </article>
-
-        <!-- Module 7 -->
-        <article class="module-card">
-          <div class="module-top">
-            <div class="module-header">
-              <span class="module-num">Module 7</span>
-              <span class="module-status status-upcoming">Upcoming</span>
-            </div>
-            <h3 class="module-title">Capstone Project &amp; Showcase</h3>
-            <p class="module-desc">
-              End-to-end applied AI solution tailored to global health and research workflows, evaluated and presented to peers.
-            </p>
-            <ul class="module-topics">
-              <li>Iterative peer feedback and prototype refinement</li>
-              <li>Live project presentation and functional demo</li>
-              <li>Critical reflection on limitations and safety</li>
-              <li>AI as an ongoing multiplier in research practice</li>
-            </ul>
-          </div>
-          <div class="submission-box">
-            <span class="btn-submission btn-placeholder">Submission Link Pending</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GenAI Consultation Section -->
-  <section id="consultation">
-    <div class="container">
-      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-        <div class="section-eyebrow">Advisory &amp; Collaboration</div>
-        <h2 class="section-title">Schedule a GenAI Consultation</h2>
-        <p class="section-desc" style="margin: 0.35rem auto 0;">
-          Let's explore AI-assisted workflows, diagnostics, or research automation tailored to your healthcare or research challenges.
-        </p>
-      </div>
-
-      <div class="form-wrapper">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLScUtzXfeBeHzYefmIAivvrTi1KwSjziC_Alxs_3sG3I28lZmQ/viewform?embedded=true" 
-          width="640" 
-          height="809" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">
-          Loading…
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <section id="connect">
-    <div class="container">
-      <div class="connect-card">
-        <div class="connect-text">
-          <h3>Connect &amp; Collaborate</h3>
-          <p>
-            Interested in discussing AI-enabled diagnostics, global health technology, or research automation? Connect with me directly on LinkedIn.
-          </p>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about-me">About</a></li>
+                    <li><a href="#about-course">Course</a></li>
+                    <li><a href="#submissions">Submissions</a></li>
+                    <li><a href="#consultations">GenAI Consultations</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <a href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
-            <span>View LinkedIn Profile</span>
-            <span>&rarr;</span>
-          </a>
+    </header>
+
+    <!-- Hero -->
+    <main id="hero" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <p class="hero-greeting">Hi, my name is</p>
+                <h1 class="hero-name">Alphonce.</h1>
+                <h2 class="hero-headline">I research and build for AI in global health.</h2>
+
+                <p class="hero-bio">
+                    Global health researcher, healthcare innovator, and registered nurse focusing on health systems research, AI-enabled diagnostics, and maternal health in low-resource settings.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a
+                        href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-pill btn-pill-outline"
+                    >
+                        Resume &amp; Profile
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn"
+                        title="LinkedIn Profile"
+                        aria-label="LinkedIn"
+                    >
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="#about-course"
+                        class="social-btn"
+                        title="Course Curriculum"
+                        aria-label="Course"
+                    >
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="#submissions"
+                        class="social-btn"
+                        title="Submissions"
+                        aria-label="Submissions"
+                    >
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="plus-pattern" aria-hidden="true">
+                    <span>+</span><span>+</span>
+                    <span>+</span><span>+</span>
+                    <span>+</span><span>+</span>
+                    <span>+</span><span>+</span>
+                </div>
+            </div>
+
+            <div class="hero-avatar-area">
+                <div class="avatar-circle-container">
+                    <img
+                        src="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Passport%20Photo_ALPHONCE%20OYUGI___.png?raw=true"
+                        alt="Alphonce Oyugi"
+                        class="avatar-circle-img"
+                        onerror="this.onerror=null; this.src='https://placehold.co/270x270/5dade2/ffffff?text=Alphonce+Oyugi';"
+                    >
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <footer>
-    <div class="container">
-      <p>Alphonce Oyugi · Generative AI for Work &amp; Research Portfolio</p>
-      <p style="margin-top: 0.35rem; color: var(--text-light); font-size: 0.8rem;">
-        The GRAPH Courses · University of Geneva · Duke University MSGH
-      </p>
+    <!-- Course information strip -->
+    <aside class="cohort-strip">
+        <div class="container cohort-pills">
+            <span class="cohort-pill">
+                <strong>Course:</strong> Generative AI for Work &amp; Research
+            </span>
 
-      <div class="footer-citation">
-        Design inspired by the <a href="https://themes.gohugo.io/themes/hugo-profile/" target="_blank" rel="noopener noreferrer">Hugo Profile</a> theme created by <strong>Gurusabarish</strong> (a high-performance and mobile-first portfolio template under MIT license).
-      </div>
-    </div>
-  </footer>
+            <span class="cohort-pill">
+                <strong>Provider:</strong> The GRAPH Courses · University of Geneva
+            </span>
+
+            <span class="cohort-pill">
+                <strong>Affiliation:</strong> Duke University (MSGH Candidate)
+            </span>
+
+            <span class="cohort-pill">
+                <strong>Format:</strong> 8-Week Live Cohort
+            </span>
+        </div>
+    </aside>
+
+    <!-- About Me -->
+    <section id="about-me">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Profile</div>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-desc">Global health researcher, healthcare innovator, and clinician.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>
+                        I am a global health early career researcher, innovator and registered nurse with passion and experience in health systems research, <strong>AI-enabled diagnostics</strong>, and maternal health in low-resource settings.
+                    </p>
+
+                    <p>
+                        I have served as a <strong>Principal Investigator and Co-Investigator</strong> on externally funded research projects involving AI-assisted Point-of-Care Ultrasound (POCUS), Point of care ultrasound Training, infectious disease modeling, and policy-relevant evidence generation to inform national health decision-making.
+                    </p>
+
+                    <p>
+                        Trained in nursing and public health, bioethics, responsible conduct of research, and quantitative data analysis (with proficiency in R, SPSS, and REDCap), I bring strong project management, interdisciplinary collaboration, and community-engaged research skills grounded in lived experience within underserved populations, with a commitment to translating rigorous research into equitable health policy and practice.
+                    </p>
+
+                    <div class="interests-group">
+                        <div class="interests-label">Research &amp; Practice Focus</div>
+
+                        <div class="interest-tags">
+                            <span class="tag">Maternal and Child Health</span>
+                            <span class="tag">Point of Care Diagnostics</span>
+                            <span class="tag">AI-Enabled POCUS</span>
+                            <span class="tag">Infectious Disease Modelling</span>
+                            <span class="tag">Health Technology Assessment</span>
+                            <span class="tag">Responsible AI in Healthcare</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar-card">
+                    <h3>Academic Background</h3>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Masters in Global Health</div>
+                        <div class="edu-institution">Duke University, USA, North Carolina</div>
+                        <div class="edu-year">2026 – 2028</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Fellowship in Infectious Disease Modelling</div>
+                        <div class="edu-institution">CEMA, University of Nairobi, Kenya</div>
+                        <div class="edu-year">2025 – 2026</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Point of Care Ultrasound Fellowship</div>
+                        <div class="edu-institution">Global Ultrasound Institute, USA</div>
+                        <div class="edu-year">2025</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Medical Device Innovation Summer Program</div>
+                        <div class="edu-institution">Invention Education, Kenyatta University</div>
+                        <div class="edu-year">2025</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Bachelor in Nursing and Public Health</div>
+                        <div class="edu-institution">Kenyatta University, Kenya</div>
+                        <div class="edu-year">2020 – 2024</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Course -->
+    <section id="about-course">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Curriculum</div>
+                <h2 class="section-title">About the Course</h2>
+                <p class="section-desc">Practical, academically grounded generative AI for scientists and professionals.</p>
+            </div>
+
+            <div class="course-summary-box">
+                <p>
+                    Based at the <strong>University of Geneva, Switzerland</strong>, The GRAPH Courses program combines academic rigor with practical, industry-relevant skills. The <em>Generative AI for Work &amp; Research</em> bootcamp is an 8-week live cohort training program focused on <strong>no-code AI tools for responsible task automation</strong>.
+                </p>
+
+                <p>
+                    The curriculum emphasizes navigating next token prediction, mitigating hallucinations in statistical outputs, automated literature reviews, context engineering, RAG, custom GPT deployment, workflow automation, and responsible presentation of scientific findings.
+                </p>
+
+                <div class="course-features-grid">
+                    <div class="feature-card">
+                        <h4>Live Workshops</h4>
+                        <p>Interactive weekly hands-on sessions applying prework concepts to real research scenarios.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>Responsible Automation</h4>
+                        <p>Emphasis on human-in-the-loop validation, data privacy, and spotting statistical errors.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>Capstone Showcase</h4>
+                        <p>Collaborative project presentation demonstrating verified, deployed AI workflows.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>Academic Foundation</h4>
+                        <p>Supported by the University of Geneva, Swiss School of Public Health, and international partners.</p>
+                    </div>
+                </div>
+
+                <div class="partners-bar">
+                    <strong>Academic &amp; Institutional Network:</strong>
+                    University of Geneva · Campus Biotech · Swiss School of Public Health (SSPH+) · World Health Organization · EPFL · ETH Zürich · University of Oxford · Fiocruz · APHRC · Renku.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Submissions -->
+    <section id="submissions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Course Progress</div>
+                <h2 class="section-title">My Weekly Submissions</h2>
+                <p class="section-desc">Coursework modules and practical deliverables across the 8-week cohort.</p>
+            </div>
+
+            <div class="modules-grid">
+
+                <!-- Module 1 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 1</span>
+                            <span class="module-status status-completed">Completed</span>
+                        </div>
+
+                        <h3 class="module-title">Documents, Presentations &amp; Websites</h3>
+
+                        <p class="module-desc">
+                            LLM foundations, next token prediction, prompt engineering for grant and paper texts, and building project websites.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>How LLMs are trained &amp; overview of LLM providers</li>
+                            <li>Principles for prompting LLMs &amp; avoiding "AI slop"</li>
+                            <li>Generating DOCX, PPTX, and HTML portfolio outputs</li>
+                            <li>AI detectors and staying in control of writing</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <a href="#hero" class="btn-submission btn-active">Active Submission: Portfolio Website</a>
+                    </div>
+                </article>
+
+                <!-- Module 2 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 2</span>
+                            <span class="module-status status-completed">Completed</span>
+                        </div>
+
+                        <h3 class="module-title">AI-Automated Data Analysis</h3>
+
+                        <p class="module-desc">
+                            Responsible quantitative data analysis using built-in data agents, REPL execution loops, and verification safeguards. Analyzed Gapminder data to explore relationships between two global indicators using AI tools.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Privacy considerations with generative AI models</li>
+                            <li>Autocomplete, chat, and REPL data agents</li>
+                            <li>Spreadsheet manipulation and dashboarding</li>
+                            <li>The verification problem: spotting statistical hallucinations</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <a
+                            href="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Gapminder_Alphonce_.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-submission btn-active"
+                        >
+                            <span>Gapminder Analysis Report (PDF)</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Module 3 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 3</span>
+                            <span class="module-status status-completed">Completed</span>
+                        </div>
+
+                        <h3 class="module-title">AI-Assisted Literature Review</h3>
+
+                        <p class="module-desc">
+                            Extracted key details from 14 experiments on social media cessation/reduction and mood using Gemini Notebook, verified extractions against original papers, generated results visualization, and compared findings with a published meta-analysis.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Batch document processing &amp; structured extraction</li>
+                            <li>Gemini Notebook RAG &amp; source verification</li>
+                            <li>Synthesizing evidence across experimental studies</li>
+                            <li>Comparing AI synthesis with published meta-analyses</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <a
+                            href="https://github.com/alpho2026/graph-ai-portfolio/blob/main/Graph%20Courses_Alphonce_Workshop_4.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-submission btn-active"
+                        >
+                            <span>Workshop 3 Report (PDF)</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Module 4 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 4</span>
+                            <span class="module-status status-upcoming">Upcoming</span>
+                        </div>
+
+                        <h3 class="module-title">Custom GPTs &amp; Chatbots</h3>
+
+                        <p class="module-desc">
+                            Knowledge base creation, context engineering, Retrieval-Augmented Generation (RAG), and safe deployment.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Context engineering and RAG foundations</li>
+                            <li>Building embedded research assistance chatbots</li>
+                            <li>Custom GPTs and NotebookLM project assistants</li>
+                            <li>Sandboxing, prompt injection risks, and rate limiting</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <span class="btn-submission btn-placeholder">Submission Link Pending</span>
+                    </div>
+                </article>
+
+                <!-- Module 5 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 5</span>
+                            <span class="module-status status-upcoming">Upcoming</span>
+                        </div>
+
+                        <h3 class="module-title">AI for Task Automation</h3>
+
+                        <p class="module-desc">
+                            Designing triggered workflows that combine traditional automation with LLM reasoning for unstructured data.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Traditional vs. LLM-powered workflow automation</li>
+                            <li>Action-based and frequency triggers</li>
+                            <li>Automated literature monitoring and research digests</li>
+                            <li>Human-in-the-loop design and browser agent execution</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <span class="btn-submission btn-placeholder">Submission Link Pending</span>
+                    </div>
+                </article>
+
+                <!-- Module 6 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 6</span>
+                            <span class="module-status status-upcoming">Upcoming</span>
+                        </div>
+
+                        <h3 class="module-title">GenAI for Communication &amp; Outreach</h3>
+
+                        <p class="module-desc">
+                            Visual abstracts, scientific infographics, SVG vs pixel generation, and ethical communication standards.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Image model architectures and prompt control</li>
+                            <li>Choosing formats: HTML/CSS vs SVG code vs pixels</li>
+                            <li>AI-assisted visual abstracts and scientific diagrams</li>
+                            <li>Ethical questions, originality, and AI-assisted video</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <span class="btn-submission btn-placeholder">Submission Link Pending</span>
+                    </div>
+                </article>
+
+                <!-- Module 7 -->
+                <article class="module-card">
+                    <div class="module-top">
+                        <div class="module-header">
+                            <span class="module-num">Module 7</span>
+                            <span class="module-status status-upcoming">Upcoming</span>
+                        </div>
+
+                        <h3 class="module-title">Capstone Project &amp; Showcase</h3>
+
+                        <p class="module-desc">
+                            End-to-end applied AI solution tailored to global health and research workflows, evaluated and presented to peers.
+                        </p>
+
+                        <ul class="module-topics">
+                            <li>Iterative peer feedback and prototype refinement</li>
+                            <li>Live project presentation and functional demo</li>
+                            <li>Critical reflection on limitations and safety</li>
+                            <li>AI as an ongoing multiplier in research practice</li>
+                        </ul>
+                    </div>
+
+                    <div class="submission-box">
+                        <span class="btn-submission btn-placeholder">Submission Link Pending</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Generative AI Consultations -->
+    <section id="consultations">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Consulting &amp; Collaboration</div>
+
+                <h2 class="section-title">Generative AI Consultations</h2>
+
+                <p class="section-desc">
+                    Have a question or project idea involving generative AI for research, healthcare, education, or workflow automation? Complete the form below to share what you need help with.
+                </p>
+            </div>
+
+            <div class="consultation-card">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScUtzXfeBeHzYefmIAivvrTi1KwSjziC_Alxs_3sG3I28lZmQ/viewform?embedded=true"
+                    title="Generative AI Consultation Request Form"
+                    width="100%"
+                    height="1000"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    loading="lazy">
+                    Loading consultation form…
+                </iframe>
+
+                <p class="form-fallback">
+                    If the form does not appear,
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScUtzXfeBeHzYefmIAivvrTi1KwSjziC_Alxs_3sG3I28lZmQ/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        open the consultation form in a new tab
+                    </a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect -->
+    <section id="connect">
+        <div class="container">
+            <div class="connect-card">
+                <div class="connect-text">
+                    <h3>Connect &amp; Collaborate</h3>
+
+                    <p>
+                        Interested in discussing AI-enabled diagnostics, global health technology, or research automation? Connect with me directly on LinkedIn.
+                    </p>
+                </div>
+
+                <div>
+                    <a
+                        href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-linkedin"
+                    >
+                        <span>View LinkedIn Profile</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Alphonce Oyugi · Generative AI for Work &amp; Research Portfolio</p>
+
+            <p style="margin-top: 0.35rem; color: var(--text-light); font-size: 0.8rem;">
+                The GRAPH Courses · University of Geneva · Duke University MSGH
+            </p>
+
+            <div class="footer-citation">
+                Design inspired by the
+                <a
+                    href="https://themes.gohugo.io/themes/hugo-profile/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Hugo Profile
+                </a>
+                theme created by <strong>Gurusabarish</strong> (a high-performance and mobile-first portfolio template under MIT license).
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
