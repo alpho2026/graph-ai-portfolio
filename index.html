@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2026/10/11/11/20261011114332-L3ZJF7EH.js" defer></script>
-    
+  <script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2026/10/11/11/20261011114332-L3ZJF7EH.js" defer></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alphonce Oyugi | Generative AI for Work & Research Portfolio</title>
@@ -137,13 +137,6 @@
       margin-left: 0.5rem;
     }
 
-    .theme-icon {
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
     .hero {
       padding: 5.5rem 0 4.5rem;
       background: #ffffff;
@@ -217,6 +210,18 @@
       text-decoration: none;
       transition: var(--transition);
       cursor: pointer;
+    }
+
+    .btn-pill-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid var(--primary);
+    }
+
+    .btn-pill-primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
     }
 
     .btn-pill-outline {
@@ -640,6 +645,27 @@
       cursor: not-allowed;
     }
 
+    /* Consultation Form Section */
+    .form-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-wrapper iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 850px;
+      border: 0;
+      border-radius: var(--radius-sm);
+    }
+
     .connect-card {
       background: #ffffff;
       border: 1px solid var(--border-card);
@@ -743,6 +769,12 @@
         justify-content: center;
         gap: 1rem;
       }
+      .form-wrapper {
+        padding: 0.75rem;
+      }
+      .form-wrapper iframe {
+        height: 920px;
+      }
     }
   </style>
 </head>
@@ -764,6 +796,7 @@
           <li><a href="#about-me">About</a></li>
           <li><a href="#about-course">Course</a></li>
           <li><a href="#submissions">Submissions</a></li>
+          <li><a href="#consultation">Consultation</a></li>
           <li><a href="#connect">Connect</a></li>
         </ul>
       </nav>
@@ -781,6 +814,10 @@
         </p>
 
         <div class="hero-cta-group">
+          <a href="#consultation" class="btn-pill btn-pill-primary">
+            Request Consultation
+          </a>
+
           <a href="https://www.linkedin.com/in/alphonce-oyugi-0a19411b2/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-outline">
             Resume &amp; Profile
           </a>
@@ -1138,6 +1175,31 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- GenAI Consultation Section -->
+  <section id="consultation">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+        <div class="section-eyebrow">Advisory &amp; Collaboration</div>
+        <h2 class="section-title">Schedule a GenAI Consultation</h2>
+        <p class="section-desc" style="margin: 0.35rem auto 0;">
+          Let's explore AI-assisted workflows, diagnostics, or research automation tailored to your healthcare or research challenges.
+        </p>
+      </div>
+
+      <div class="form-wrapper">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLScUtzXfeBeHzYefmIAivvrTi1KwSjziC_Alxs_3sG3I28lZmQ/viewform?embedded=true" 
+          width="640" 
+          height="809" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+          Loading…
+        </iframe>
       </div>
     </div>
   </section>
